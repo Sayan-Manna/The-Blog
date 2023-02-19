@@ -8,6 +8,7 @@ const props = {
   "--my-yellow": "#f4b400",
   "--my-green": "#0f9d58",
   "--sayan-brand": "#F7AB0A",
+  // "--my-dark": "#22223b",
 };
 
 export const myTheme = buildLegacyTheme({

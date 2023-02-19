@@ -46,7 +46,7 @@ async function PostPage({ params: { slug } }: Props) {
 
   return (
     post && (
-      <article className="px-10 pb-28">
+      <article className="max-w-7xl mx-auto px-10 pb-28">
         <section className="space-y-2 border border-[#f7ab0a] border-emphasize">
           <div className="min-h-56 relative flex flex-col justify-between md:flex-row">
             <div className="absolute top-0 h-full w-full p-10 opacity-20 blur-sm">
