@@ -47,7 +47,7 @@ async function PostPage({ params: { slug } }: Props) {
   return (
     post && (
       <article className="max-w-7xl mx-auto px-10 pb-28">
-        <section className="space-y-2 border border-[#f7ab0a] border-emphasize">
+        <section className="space-y-2 border border-[#f7ab0a] dark:border-[#e07a5f]/50 ">
           <div className="min-h-56 relative flex flex-col justify-between md:flex-row">
             <div className="absolute top-0 h-full w-full p-10 opacity-20 blur-sm">
               {post && post.mainImage && (
@@ -60,7 +60,7 @@ async function PostPage({ params: { slug } }: Props) {
               )}
             </div>
 
-            <section className="w-full bg-[#f7ab0a] p-5">
+            <section className="w-full bg-[#f7ab0a] dark:bg-[#e07a5f]/50 p-5">
               <div className="flex flex-col justify-between gap-y-5 md:flex-row">
                 <div>
                   <h1 className="text-4xl font-extrabold">{post?.title}</h1>
