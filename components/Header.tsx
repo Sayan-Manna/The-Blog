@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 function Header() {
   const { theme } = useTheme();
   return (
-    <header className=" sticky top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 flex items-center justify-between space-x-2 px-10 py-4 font-bold z-20">
+    <header className=" sticky top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-[#ffe5d9] flex items-center justify-between space-x-2 px-10 py-4 font-bold z-20">
       <motion.div
         className="flex items-center space-x-2"
         initial={{
