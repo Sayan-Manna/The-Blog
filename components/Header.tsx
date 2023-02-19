@@ -27,7 +27,7 @@ function Header() {
           opacity: 1,
           scale: 1,
         }}
-        transition={{ duration: 1.5 }}
+        transition={{ duration: 0.5 }}
       >
         <Link href="/" className="rounded-full p-2 shadow-md">
           {theme === "dark" ? (
@@ -61,7 +61,7 @@ function Header() {
           opacity: 1,
           scale: 1,
         }}
-        transition={{ duration: 1.5 }}
+        transition={{ duration: 0.5 }}
         // className="flex flex-row items-center"
       >
         <DarkModeButton></DarkModeButton>
