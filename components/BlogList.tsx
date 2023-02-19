@@ -1,29 +1,21 @@
-"use client";
 import Image from "next/image";
 import urlFor from "../lib/urlFor";
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import ClientSideRoute from "./ClientSideRoute";
-import { motion } from "framer-motion";
+
+// import useMediaQuery from "../hooks/useMediaQuery";
 
 type Props = {
   posts: Post[];
 };
 
 function BlogList({ posts }: Props) {
+  // const isAboveLarge = useMediaQuery("(min-width: 1060px)");
   return (
     <div className=" max-w-7xl mx-auto">
       <hr className="mb-10 border-[#f7ab0a]" />
-      <motion.div
-        className=" grid grid-cols-1 gap-x-10 gap-y-16 px-10 pb-24 md:grid-cols-2"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{ duration: 1.5 }}
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0 },
-        }}
-      >
+
+      <div className=" grid grid-cols-1 gap-x-10 gap-y-16 px-10 pb-24 md:grid-cols-2">
         {/* Posts */}
         {posts.map((post) => (
           <ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
@@ -70,7 +62,7 @@ function BlogList({ posts }: Props) {
             </div>
           </ClientSideRoute>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
