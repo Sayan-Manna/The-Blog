@@ -6,16 +6,44 @@ import Logo from "../public/memoji2.png";
 import { useTheme } from "next-themes";
 import DarkModeButton from "./DarkModeButton";
 import { motion } from "framer-motion";
+import { useState } from "react";
+// import useMediaQuery from "../hooks/useMediaQuery";
 
 {
   /* <header className=" sticky top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-[#ffe5d9] dark:border-[#161b33]/50 flex items-center justify-between space-x-2 px-10 py-4 font-bold z-20"> */
   // "flex items-center justify-between space-x-2 px-10 py-4 font-bold"
 }
 
-function Header() {
+function Header({
+  isTopOfPage,
+  scrollData,
+  setScrollData,
+  showNav,
+}: {
+  isTopOfPage: any;
+  scrollData: any;
+  setScrollData: any;
+  showNav: any;
+}) {
   const { theme } = useTheme();
+  // const [isMenuToggled, setIsMenuToggled] = useState(false);
+  // var navGround = "";
+  // const navbarBackgroundLight = isTopOfPage ? "" : "bg-light";
+  // const navbarBackgroundDark = isTopOfPage ? "" : "bg-darkmode";
+  // {
+  //   theme === "dark"
+  //     ? (navGround += navbarBackgroundDark)
+  //     : (navGround += navbarBackgroundLight);
+  // }
+
   return (
-    <header className=" sticky top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-[#ffe5d9] dark:border-[#161b33]/50 flex items-center justify-between space-x-2 px-10 py-1 font-bold z-20">
+    <header
+      className={
+        showNav == false
+          ? "animation md:animation_md"
+          : "animation_hiden md:animation_md"
+      }
+    >
       <motion.div
         className="flex items-center space-x-2"
         initial={{
@@ -34,16 +62,16 @@ function Header() {
           {theme === "dark" ? (
             <Image
               className="object-cover"
-              width={35}
-              height={35}
+              width={40}
+              height={40}
               src={Logo}
               alt="logo"
             />
           ) : (
             <Image
               className="object-cover"
-              width={35}
-              height={35}
+              width={40}
+              height={40}
               src={Logo}
               alt="logo"
             />

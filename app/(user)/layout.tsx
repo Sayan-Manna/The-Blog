@@ -1,19 +1,66 @@
+"use client";
 import "../../styles/globals.css";
 import Header from "../../components/Header";
 import Banner from "../../components/Banner";
 import ThemeProviders from "./ThemeProviders";
+import { useEffect, useState } from "react";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
+  const [isTopOfPage, setIsTopOfPage] = useState(true);
+  const [showNav, setShowNav] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setIsTopOfPage(true);
+      }
+      if (window.scrollY !== 0) setIsTopOfPage(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollData((prevState) => {
+        return {
+          y: window.scrollY,
+          lastY: prevState.y,
+        };
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (scrollData.y > 294) {
+      setShowNav(true);
+    } else {
+      setShowNav(false);
+    }
+    if (scrollData.lastY < scrollData.y) {
+      setShowNav(true);
+    } else {
+      setShowNav(false);
+    }
+  }, [scrollData]);
   return (
     <html>
-      <body className="bg-[#ffe5d9] dark:bg-[#161b33]/50 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-y-scroll overflow-x-hidden ">
+      <body className=" bg-[#ffe5d9] dark:bg-[#161b33]/50 scrollbar-thin scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 overflow-y-scroll overflow-x-hidden ">
         <ThemeProviders>
           {/* Header */}
-          <Header />
+          <Header
+            isTopOfPage={isTopOfPage}
+            scrollData={scrollData}
+            setScrollData={setScrollData}
+            showNav={showNav}
+          />
           {/* Banner */}
           <Banner />
           {children}

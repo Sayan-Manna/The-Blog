@@ -7,6 +7,7 @@ module.exports = {
   ],
   darkMode: "class",
   theme: {
+    colors: { light: "#ffe5d9", darkmode: "#161b33" },
     extend: {
       backgroundImage: {
         site: "url('../public/pexels.jpg')",
