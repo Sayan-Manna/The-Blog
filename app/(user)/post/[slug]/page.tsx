@@ -94,7 +94,7 @@ async function PostPage({ params: { slug } }: Props) {
                   {post.categories.map((category) => (
                     <p
                       key={category._id}
-                      className="mt-4 rounded-full bg-gray-800 px-3 py-1 text-sm font-semibold text-white"
+                      className="mt-4 rounded-full bg-gray-800 dark:bg-gray-900 px-3 py-1 text-sm font-semibold text-white"
                     >
                       {category.title}
                     </p>
