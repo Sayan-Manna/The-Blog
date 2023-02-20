@@ -9,12 +9,13 @@ import { motion } from "framer-motion";
 
 {
   /* <header className=" sticky top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-[#ffe5d9] dark:border-[#161b33]/50 flex items-center justify-between space-x-2 px-10 py-4 font-bold z-20"> */
+  // "flex items-center justify-between space-x-2 px-10 py-4 font-bold"
 }
 
 function Header() {
   const { theme } = useTheme();
   return (
-    <header className="flex items-center justify-between space-x-2 px-10 py-4 font-bold">
+    <header className=" sticky top-0 backdrop-filter backdrop-blur-lg bg-opacity-30 border-b border-[#ffe5d9] dark:border-[#161b33]/50 flex items-center justify-between space-x-2 px-10 py-1 font-bold z-20">
       <motion.div
         className="flex items-center space-x-2"
         initial={{
@@ -33,16 +34,16 @@ function Header() {
           {theme === "dark" ? (
             <Image
               className="object-cover"
-              width={54}
-              height={54}
+              width={35}
+              height={35}
               src={Logo}
               alt="logo"
             />
           ) : (
             <Image
               className="object-cover"
-              width={54}
-              height={54}
+              width={35}
+              height={35}
               src={Logo}
               alt="logo"
             />
