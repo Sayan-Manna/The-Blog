@@ -43,7 +43,7 @@ export default function RootLayout({
       return;
     }
 
-    if (scrollData.y>395 && scrollData.y - scrollData.lastY > 0) {
+    if (scrollData.y > 350 && scrollData.y - scrollData.lastY > 0) {
       setHideNav(true);
     } else {
       setHideNav(false);
