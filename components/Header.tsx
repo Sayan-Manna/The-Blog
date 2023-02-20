@@ -18,12 +18,12 @@ function Header({
   isTopOfPage,
   scrollData,
   setScrollData,
-  showNav,
+  hideNav,
 }: {
   isTopOfPage: any;
   scrollData: any;
   setScrollData: any;
-  showNav: any;
+  hideNav: any;
 }) {
   const { theme } = useTheme();
   // const [isMenuToggled, setIsMenuToggled] = useState(false);
@@ -39,7 +39,7 @@ function Header({
   return (
     <header
       className={
-        showNav == false
+        hideNav == false
           ? "animation md:animation_md"
           : "animation_hiden md:animation_md"
       }

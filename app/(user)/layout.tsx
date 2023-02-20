@@ -12,25 +12,25 @@ export default function RootLayout({
 }) {
   const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
   const [isTopOfPage, setIsTopOfPage] = useState(true);
-  const [showNav, setShowNav] = useState(false);
+  const [hideNav, setHideNav] = useState(false);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (window.scrollY === 0) {
+  //       setIsTopOfPage(true);
+  //     }
+  //     if (window.scrollY !== 0) setIsTopOfPage(false);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setIsTopOfPage(true);
-      }
-      if (window.scrollY !== 0) setIsTopOfPage(false);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollData((prevState) => {
+      setScrollData((lastState) => {
         return {
           y: window.scrollY,
-          lastY: prevState.y,
+          lastY: lastState.y,
         };
       });
     };
@@ -39,15 +39,14 @@ export default function RootLayout({
   }, []);
 
   useEffect(() => {
-    if (scrollData.y > 294) {
-      setShowNav(true);
-    } else {
-      setShowNav(false);
+    if (scrollData.lastY === scrollData.y) {
+      return;
     }
-    if (scrollData.lastY < scrollData.y) {
-      setShowNav(true);
+
+    if (scrollData.y>395 && scrollData.y - scrollData.lastY > 0) {
+      setHideNav(true);
     } else {
-      setShowNav(false);
+      setHideNav(false);
     }
   }, [scrollData]);
   return (
@@ -59,7 +58,7 @@ export default function RootLayout({
             isTopOfPage={isTopOfPage}
             scrollData={scrollData}
             setScrollData={setScrollData}
-            showNav={showNav}
+            hideNav={hideNav}
           />
           {/* Banner */}
           <Banner />
