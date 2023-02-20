@@ -26,6 +26,11 @@ function BlogList({ posts }: Props) {
                   src={urlFor(post.mainImage).url()}
                   alt={post.author.name}
                   fill
+                  priority={true}
+                  // placeholder="blur"
+                  sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
                 />
                 <div className="absolute bottom-0 w-full flex justify-between rounded bg-neutral-900 backdrop-blur-lg bg-opacity-20 p-5 text-white drop-shadow-lg">
                   <div>
