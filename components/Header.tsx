@@ -15,17 +15,17 @@ import { useState } from "react";
 }
 
 function Header() {
-//   {
-//   isTopOfPage,
-//   scrollData,
-//   setScrollData,
-//   hideNav,
-// }: {
-//   isTopOfPage: any;
-//   scrollData: any;
-//   setScrollData: any;
-//   hideNav: any;
-// }
+  //   {
+  //   isTopOfPage,
+  //   scrollData,
+  //   setScrollData,
+  //   hideNav,
+  // }: {
+  //   isTopOfPage: any;
+  //   scrollData: any;
+  //   setScrollData: any;
+  //   hideNav: any;
+  // }
   const { theme } = useTheme();
   // const [isMenuToggled, setIsMenuToggled] = useState(false);
   // var navGround = "";
@@ -44,59 +44,83 @@ function Header() {
       //     ? "animation md:animation_md"
       //     : "animation_hiden md:animation_md"
       // }
-      className="animation_md"
+      className="sticky top-0 backdrop-filter backdrop-blur-md bg-opacity-80 border-b border-[#ffe5d9] dark:border-[#161b33]/50 space-x-2 px-10 py-2 md:py-3 font-bold z-20"
     >
-      <motion.div
-        className="flex items-center space-x-2"
-        initial={{
-          x: -400,
-          opacity: 0,
-          scale: 0.5,
-        }}
-        animate={{
-          x: 0,
-          opacity: 1,
-          scale: 1,
-        }}
-        transition={{ duration: 0.5 }}
-      >
-        <Link href="/" className="rounded-full p-2 shadow-md">
-          {theme === "dark" ? (
-            <Image
-              className="object-cover"
-              width={40}
-              height={40}
-              src={Logo}
-              alt="logo"
-            />
-          ) : (
-            <Image
-              className="object-cover"
-              width={40}
-              height={40}
-              src={Logo}
-              alt="logo"
-            />
-          )}
-        </Link>
-        {/* <h2>SAYAN 🚀</h2> */}
-      </motion.div>
-      <motion.div
-        initial={{
-          x: 400,
-          opacity: 0,
-          scale: 0.5,
-        }}
-        animate={{
-          x: 0,
-          opacity: 1,
-          scale: 1,
-        }}
-        transition={{ duration: 0.5 }}
-        // className="flex flex-row items-center"
-      >
-        <DarkModeButton></DarkModeButton>
-      </motion.div>
+      <div className="flex justify-between">
+        <motion.div
+          className="flex md:space-x-4 font-bold md:px-10 lg:py-5"
+          initial={{
+            x: -400,
+            opacity: 0,
+            scale: 0.5,
+          }}
+          animate={{
+            x: 0,
+            opacity: 1,
+            scale: 1,
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link href="/" className="rounded-full p-2 shadow-md">
+            {theme === "dark" ? (
+              <Image
+                className="object-cover"
+                width={40}
+                height={40}
+                src={Logo}
+                alt="logo"
+              />
+            ) : (
+              <Image
+                className="object-cover"
+                width={40}
+                height={40}
+                src={Logo}
+                alt="logo"
+              />
+            )}
+          </Link>
+          {/* <h2 className="flex justify-center items-center">SAYAN 🚀</h2> */}
+        </motion.div>
+
+        <div className="flex justify-center items-center space-x-4 font-bold md:px-10 lg:py-5">
+          <motion.div
+            initial={{
+              x: 400,
+              opacity: 0,
+              scale: 0.5,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <DarkModeButton></DarkModeButton>
+          </motion.div>
+          <motion.div
+            initial={{
+              x: 400,
+              opacity: 0,
+              scale: 0.5,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{ duration: 0.5 }}
+          >
+            <Link
+              href="https://the-blog-rho.vercel.app/studio"
+              className="px-3 md:px-5 md:py-5 py-3 text-sm md:text-base bg-gray-900 dark:bg-[#e07a5f]/40 text-[#f7ab0a] dark:text-white rounded-full text-center"
+            >
+              Open Studio⚡️
+            </Link>
+          </motion.div>
+        </div>
+      </div>
     </header>
   );
 }
