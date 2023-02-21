@@ -20,7 +20,7 @@ function BlogList({ posts }: Props) {
         {posts.map((post) => (
           <ClientSideRoute key={post._id} route={`/post/${post.slug.current}`}>
             <div className=" group cursor-pointer flex flex-col">
-              <div className="relative w-full h-80 transform-gpu drop-shadow-xl md:transition-transform md:duration-200 md:ease-out md:group-hover:scale-105">
+              <div className="noselect relative w-full h-80 transform-gpu drop-shadow-xl md:transition-transform md:duration-200 md:ease-out md:group-hover:scale-105">
                 <Image
                   className="object-cover object-center lg:object-center"
                   src={urlFor(post.mainImage).url()}
@@ -55,11 +55,11 @@ function BlogList({ posts }: Props) {
                   </div>
                 </div>
               </div>
-              <div className="mt-5 flex-1">
+              <div className="noselect mt-5 flex-1">
                 <p className="text-lg font-bold underline">{post.title}</p>
                 <p className="text-gray-500 line-clamp-2">{post.description}</p>
               </div>
-              <p className="mt-5 flex items-center font-bold group-hover:underline hover:decoration-4 decoration-[#e07a5f]">
+              <p className="noselect mt-5 flex items-center font-bold group-hover:underline hover:decoration-4 decoration-[#e07a5f]">
                 Read Post
                 <ArrowUpRightIcon className="ml-2 h-4 w-4"></ArrowUpRightIcon>
               </p>

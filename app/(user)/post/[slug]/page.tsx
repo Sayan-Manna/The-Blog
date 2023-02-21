@@ -6,6 +6,7 @@ import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "../../../../components/RichTextComponent";
 
 import dynamic from "next/dynamic";
+import author from "../../../../schemas/author";
 
 type Props = {
   params: {
@@ -46,7 +47,7 @@ async function PostPage({ params: { slug } }: Props) {
 
   return (
     post && (
-      <article className="max-w-7xl mx-auto px-10 pb-28">
+      <article className="noselect max-w-7xl mx-auto px-10 pb-28">
         <section className="space-y-2 border border-[#f7ab0a] dark:border-[#e07a5f]/50 ">
           <div className="min-h-56 relative flex flex-col justify-between md:flex-row">
             <div className="absolute top-0 h-full w-full p-10 opacity-20 blur-sm">
@@ -84,7 +85,11 @@ async function PostPage({ params: { slug } }: Props) {
                   ></Image>
                   <div className="w-64">
                     <h3 className="text-lg font-bold">{post.author.name}</h3>
-                    {/* <div>Bio</div> */}
+                    <span className="italic underline decoration-[#e07a5f] dark:decoration-[#F7AB0A] decoration-2">
+                      {post.author.bio.map((e) =>
+                        e.children.map((e) => e.text)
+                      )}
+                    </span>
                   </div>
                 </div>
               </div>

@@ -44,11 +44,11 @@ function Header() {
       //     ? "animation md:animation_md"
       //     : "animation_hiden md:animation_md"
       // }
-      className="sticky top-0 backdrop-filter backdrop-blur-md bg-opacity-80 border-b border-[#ffe5d9] dark:border-[#161b33]/50 space-x-2 px-10 py-2 md:py-3 font-bold z-20"
+      className="sticky top-0 backdrop-filter backdrop-blur-md bg-opacity-80 border-b border-[#ffe5d9] dark:border-[#161b33]/50 space-x-2 px-5 md:px-10 py-1 md:py-3 font-bold z-20"
     >
       <div className="flex justify-between">
         <motion.div
-          className="flex md:space-x-4 font-bold md:px-10 lg:py-5"
+          className="flex md:space-x-4 font-bold"
           initial={{
             x: -400,
             opacity: 0,
@@ -61,7 +61,7 @@ function Header() {
           }}
           transition={{ duration: 0.5 }}
         >
-          <Link href="/" className="rounded-full p-2 shadow-md">
+          <Link href="/" className="rounded-full p-2 shadow-md noselect">
             {theme === "dark" ? (
               <Image
                 className="object-cover"
@@ -83,7 +83,7 @@ function Header() {
           {/* <h2 className="flex justify-center items-center">SAYAN 🚀</h2> */}
         </motion.div>
 
-        <div className="flex justify-center items-center space-x-4 font-bold md:px-10 lg:py-5">
+        <div className="noselect flex justify-center items-center space-x-4 md:space-x-10 font-bold md:px-10">
           <motion.div
             initial={{
               x: 400,
@@ -114,7 +114,7 @@ function Header() {
           >
             <Link
               href="https://the-blog-rho.vercel.app/studio"
-              className="px-3 md:px-5 md:py-5 py-3 text-sm md:text-base bg-gray-900 dark:bg-[#e07a5f]/40 text-[#f7ab0a] dark:text-white rounded-full text-center"
+              className="noselect px-3 md:px-5 md:py-5 py-3 text-sm md:text-base bg-gray-900 dark:bg-[#e07a5f]/40 text-[#f7ab0a] dark:text-white rounded-full text-center"
             >
               Open Studio⚡️
             </Link>
