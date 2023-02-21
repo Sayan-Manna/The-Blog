@@ -6,7 +6,6 @@ import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "../../../../components/RichTextComponent";
 
 import dynamic from "next/dynamic";
-import author from "../../../../schemas/author";
 
 type Props = {
   params: {
