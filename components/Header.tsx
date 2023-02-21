@@ -14,17 +14,18 @@ import { useState } from "react";
   // "flex items-center justify-between space-x-2 px-10 py-4 font-bold"
 }
 
-function Header({
-  isTopOfPage,
-  scrollData,
-  setScrollData,
-  hideNav,
-}: {
-  isTopOfPage: any;
-  scrollData: any;
-  setScrollData: any;
-  hideNav: any;
-}) {
+function Header() {
+//   {
+//   isTopOfPage,
+//   scrollData,
+//   setScrollData,
+//   hideNav,
+// }: {
+//   isTopOfPage: any;
+//   scrollData: any;
+//   setScrollData: any;
+//   hideNav: any;
+// }
   const { theme } = useTheme();
   // const [isMenuToggled, setIsMenuToggled] = useState(false);
   // var navGround = "";
@@ -38,11 +39,12 @@ function Header({
 
   return (
     <header
-      className={
-        hideNav == false
-          ? "animation md:animation_md"
-          : "animation_hiden md:animation_md"
-      }
+      // className={
+      //   hideNav == false
+      //     ? "animation md:animation_md"
+      //     : "animation_hiden md:animation_md"
+      // }
+      className="animation_md"
     >
       <motion.div
         className="flex items-center space-x-2"

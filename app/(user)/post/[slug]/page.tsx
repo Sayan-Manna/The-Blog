@@ -56,6 +56,7 @@ async function PostPage({ params: { slug } }: Props) {
                   src={urlFor(post.mainImage).url()}
                   alt={post.author.name}
                   fill
+                  priority={true}
                 ></Image>
               )}
             </div>
