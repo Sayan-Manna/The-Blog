@@ -113,7 +113,7 @@ function Header() {
             transition={{ duration: 0.5 }}
           >
             <Link
-              href="https://the-blog-rho.vercel.app/studio"
+              href="https://sayanwrites.engineer/studio"
               className="noselect px-3 md:px-5 md:py-5 py-3 text-sm md:text-base bg-gray-900 dark:bg-[#e07a5f]/40 text-[#f7ab0a] dark:text-white rounded-full text-center"
             >
               Open Studio⚡️
