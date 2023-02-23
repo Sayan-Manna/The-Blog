@@ -1,18 +1,24 @@
+"use client";
 import Image from "next/image";
 import urlFor from "../lib/urlFor";
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 import ClientSideRoute from "./ClientSideRoute";
+import { useState } from "react";
 
 // import useMediaQuery from "../hooks/useMediaQuery";
 
 type Props = {
   posts: Post[];
 };
+function cn(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
 
 function BlogList({ posts }: Props) {
   // const isAboveLarge = useMediaQuery("(min-width: 1060px)");
+  const [isLoading, setLoading] = useState(true);
   return (
-    <div className=" max-w-7xl mx-auto">
+    <div className=" max-w-6xl mx-auto">
       <hr className="mb-10 border-[#f7ab0a]" />
 
       <div className=" grid grid-cols-1 gap-x-10 gap-y-16 px-10 pb-24 md:grid-cols-2">
@@ -22,7 +28,6 @@ function BlogList({ posts }: Props) {
             <div className=" group cursor-pointer flex flex-col">
               <div className="noselect relative w-full h-80 transform-gpu drop-shadow-xl md:transition-transform md:duration-200 md:ease-out md:group-hover:scale-105">
                 <Image
-                  className="object-cover object-center lg:object-center"
                   src={urlFor(post.mainImage).url()}
                   alt={post.author.name}
                   fill
@@ -30,6 +35,11 @@ function BlogList({ posts }: Props) {
                   sizes="(max-width: 768px) 100vw,
                   (max-width: 1200px) 50vw,
                   33vw"
+                  className={cn(
+                    "object-cover object-center lg:object-center duration-700 ",
+                    isLoading ? "blur-xl scale-100" : " blur-0 scale-100"
+                  )}
+                  onLoadingComplete={() => setLoading(false)}
                 />
 
                 <div className="absolute bottom-0 w-full flex justify-between rounded bg-neutral-900 backdrop-blur-lg bg-opacity-20 p-5 text-white drop-shadow-lg">
