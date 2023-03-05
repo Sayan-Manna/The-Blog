@@ -1,6 +1,7 @@
 import { buildLegacyTheme } from "sanity";
 
 const props = {
+  // css variables
   "--my-white": "#fff",
   "--my-black": "#1a1a1a",
   // '--my-blue': '#4285f4',
