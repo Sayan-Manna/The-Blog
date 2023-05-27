@@ -15,7 +15,7 @@ function Banner() {
         }}
       >
         <h1 className="text-7xl noselect">
-          Sayan&apos;s <span className="text-[#e07a5f]">Blog</span>
+          Sayan <span className="text-[#e07a5f]">Writes</span>
         </h1>
         <h2 className="noselect mt-5 md:mt-0">
           Welcome to{" "}
